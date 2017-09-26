@@ -54,5 +54,7 @@ describe('Card: models', () => {
             expect(updated.habitat).to.equal(0);
             done();
         });
-    })
+    });
+
+    // TODO -> write tests for rest of setters
 });
