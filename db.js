@@ -1,10 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var auth = require('./auth');
 
 // TODO Set these environment variables
-var uname = process.env.MONGO_UNAME;
-var password = process.env.MONGO_PWD;
 var env = process.env.NODE_ENV;
 var options = {
     autoReconnect: true,
@@ -12,11 +11,14 @@ var options = {
     reconnectInterval: 2000
 };
 
-var auth;
 var db;
 
 db = mongoose.connect('mongodb://localhost/looklook');
 console.log('Connected to local database');
+
+// let AUTH = auth.uname + ':' + auth.password;
+// db = mongoose.connect('mongodb://' + AUTH + '@ds149134.mlab.com:49134/looklook', options);
+// console.log('Connected to sandbox instance');
 
 mongoose.connection.on('error', function(e) {
     console.log('Could not connect to mongoose', e);
