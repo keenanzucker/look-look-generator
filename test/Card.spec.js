@@ -56,5 +56,51 @@ describe('Card: models', () => {
         });
     });
 
-    // TODO -> write tests for rest of setters
+    it('#setsLifespan', (done) => {
+        expect(DUT.lifespan).to.equal(-1);
+        Card.setLifespan(DUT._id, 0, (updated) => {
+            expect(updated.lifespan).to.equal(0);
+            done();
+        });
+    });
+
+    it('#setsDomain', (done) => {
+        expect(DUT.domain).to.equal(-1);
+        Card.setDomain(DUT._id, 0, (updated) => {
+            expect(updated.domain).to.equal(0);
+            done();
+        });
+    });
+
+    it('#setsTrophicLevel', (done) => {
+        expect(DUT.trophicLevel).to.equal(-1);
+        Card.setTrophicLevel(DUT._id, 0, (updated) => {
+            expect(updated.trophicLevel).to.equal(0);
+            done();
+        });
+    });
+
+    it('#setsName', (done) => {
+        expect(DUT.name).to.be.empty;
+        Card.setName(DUT._id, 'updated name', (updated) => {
+            expect(updated.name).to.equal('updated name');
+            done();
+        });
+    });
+
+    it('#setsTitle', (done) => {
+        expect(DUT.title).to.be.empty;
+        Card.setTitle(DUT._id, 'look look card', (updated) => {
+            expect(updated.title).to.equal('look look card');
+            done();
+        });
+    });
+
+    it('#setsDescription', (done) => {
+        expect(DUT.description).to.be.empty;
+        Card.setDescription(DUT._id, 'a description', (updated) => {
+            expect(updated.description).to.equal('a description');
+            done();
+        });
+    });
 });
