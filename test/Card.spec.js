@@ -11,8 +11,6 @@ function clearDB(cb) {
     cb();
 }
 
-// write tests for other 5 setters
-
 describe('Card: models', () => {
     let DUT;
 
@@ -94,6 +92,14 @@ describe('Card: models', () => {
         expect(DUT.title).to.be.empty;
         Card.setTitle(DUT._id, 'look look card', (updated) => {
             expect(updated.title).to.equal('look look card');
+            done();
+        });
+    });
+
+    it('#setsDescription', (done) => {
+        expect(DUT.description).to.be.empty;
+        Card.setDescription(DUT._id, 'a description', (updated) => {
+            expect(updated.description).to.equal('a description');
             done();
         });
     });

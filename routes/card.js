@@ -1,9 +1,6 @@
 var router = require('express').Router();
 var CardModel = require('../models/Card.js');
 
-
-// TODO -> write posts for size, super defender, nocturnal, map, once model updates are written
-
 router.post('/new', (req, res) => {
 
     CardModel.makeCard((card) => {
