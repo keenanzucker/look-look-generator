@@ -20,6 +20,8 @@ console.log('Connected to local database');
 // db = mongoose.connect('mongodb://' + AUTH + '@ds149134.mlab.com:49134/looklook', options);
 // console.log('Connected to sandbox instance');
 
+// TODO -> try to get mlab working with my credentials
+
 mongoose.connection.on('error', function(e) {
     console.log('Could not connect to mongoose', e);
 });

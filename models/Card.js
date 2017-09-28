@@ -133,4 +133,77 @@ cardSchema.statics.setDescription = function(id, description, cb) {
     );
 };
 
+cardSchema.statics.setAuthor = function(id, author, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {author: author}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update author on card', id, author, err);
+            cb(card);
+        }
+    );
+};
+
+// Image currently going to be passed in as string (a url to an image for simplicity)
+cardSchema.statics.setImage = function(id, image, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {image: image}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update image on card', id, image, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setMap = function(id, map, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {map: map}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update map on card', id, map, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setNocturnal = function(id, nocturnal, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {nocturnal: nocturnal}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update nocturnal on card', id, nocturnal, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setSuperDefender = function(id, superDefender, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {superDefender: superDefender}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update super defender on card', id, superDefender, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setSize = function(id, size, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {size: size}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update size on card', id, size, err);
+            cb(card);
+        }
+    );
+};
+
 module.exports = mongoose.model('Card', cardSchema);
