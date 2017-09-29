@@ -103,4 +103,46 @@ describe('Card: models', () => {
             done();
         });
     });
+
+    it('#setsImage', (done) => {
+        expect(DUT.image).to.be.empty;
+        Card.setImage(DUT._id, 'a image', (updated) => {
+            expect(updated.image).to.equal('a image');
+            done();
+        });
+    });
+
+    it('#setsNocturnal', (done) => {
+        expect(DUT.nocturnal).to.be.null;
+        Card.setNocturnal(DUT._id, true, (updated) => {
+            expect(updated.nocturnal).to.equal(true);
+            done();
+        });
+    });
+
+    it('#setsSuperDefender', (done) => {
+        expect(DUT.superDefender).to.be.null;
+        Card.setSuperDefender(DUT._id, true, (updated) => {
+            expect(updated.superDefender).to.equal(true);
+            done();
+        });
+    });
+
+    // TODO -> ask Hieu how to make these work
+
+    // it('#setsSize', (done) => {
+    //     expect(DUT.size).to.equal({feet: -1, inches: -1});
+    //     Card.setSize(DUT._id, {feet: 4, inches: 0}, (updated) => {
+    //         expect(updated.size).to.equal({feet: 4, inches: 0});
+    //         done();
+    //     });
+    // });
+
+    // it('#setsMap', (done) => {
+    //     expect(DUT.map).to.equal([false, false, false, false, false, false, false, false]);
+    //     Card.setMap(DUT._id, [true, true, true, true, false, false, false, false], (updated) => {
+    //         expect(updated.map).to.equal([true, true, true, true, false, false, false, false]);
+    //         done();
+    //     });
+    // });
 });
