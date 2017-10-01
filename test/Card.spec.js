@@ -128,21 +128,21 @@ describe('Card: models', () => {
         });
     });
 
-    // TODO -> ask Hieu how to make these work
+    it('#setsSize', (done) => {
+        expect(DUT.size.feet).to.equal(-1);
+        expect(DUT.size.inches).to.equal(-1);        
+        Card.setSize(DUT._id, {feet: 4, inches: 0}, (updated) => {
+            expect(updated.size.feet).to.equal(4);
+            expect(updated.size.inches).to.equal(0);            
+            done();
+        });
+    });
 
-    // it('#setsSize', (done) => {
-    //     expect(DUT.size).to.equal({feet: -1, inches: -1});
-    //     Card.setSize(DUT._id, {feet: 4, inches: 0}, (updated) => {
-    //         expect(updated.size).to.equal({feet: 4, inches: 0});
-    //         done();
-    //     });
-    // });
-
-    // it('#setsMap', (done) => {
-    //     expect(DUT.map).to.equal([false, false, false, false, false, false, false, false]);
-    //     Card.setMap(DUT._id, [true, true, true, true, false, false, false, false], (updated) => {
-    //         expect(updated.map).to.equal([true, true, true, true, false, false, false, false]);
-    //         done();
-    //     });
-    // });
+    it('#setsMap', (done) => {
+        expect(DUT.map).to.deep.equal([false, false, false, false, false, false, false, false]);
+        Card.setMap(DUT._id, [true, true, true, true, false, false, false, false], (updated) => {
+            expect(updated.map).to.deep.equal([true, true, true, true, false, false, false, false]);
+            done();
+        });
+    });
 });
