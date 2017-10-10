@@ -18,7 +18,9 @@ module.exports = {
     resolve: {
         alias: {
             Components: path.resolve(SRC, 'components/'),
-            Containers: path.resolve(SRC, 'containers/')
+            Containers: path.resolve(SRC, 'containers/'),
+            Actions: path.resolve(SRC, 'actions/'),
+            Reducers: path.resolve(SRC, 'reducers/')         
         }
     },
     module: {

@@ -18,7 +18,7 @@ router.post('/set-habitat/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set habitat'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -29,7 +29,7 @@ router.post('/set-lifespan/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set lifespan'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -40,7 +40,7 @@ router.post('/set-domain/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set domain'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -51,7 +51,7 @@ router.post('/set-trophic-level/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set trophic level'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -62,7 +62,7 @@ router.post('/set-name/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set name'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -73,7 +73,7 @@ router.post('/set-title/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set title'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -84,7 +84,18 @@ router.post('/set-description/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set description'});
         } else {
-            res.json({});
+            res.json(card);
+        }
+    })
+});
+
+router.post('/set-author/', (req, res) => {
+    
+    CardModel.setAuthor(req.body.id, req.body.author, (card) => {
+        if (!card) {
+            res.json({error: 'Could not set author'});
+        } else {
+            res.json(card);
         }
     })
 });
@@ -95,7 +106,7 @@ router.post('/set-image/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set image'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -106,7 +117,7 @@ router.post('/set-map/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set map'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -117,7 +128,7 @@ router.post('/set-nocturnal/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set nocturnal'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -128,7 +139,7 @@ router.post('/set-super-defender/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set super defender'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
@@ -139,7 +150,7 @@ router.post('/set-size/', (req, res) => {
         if (!card) {
             res.json({error: 'Could not set size'});
         } else {
-            res.json({});
+            res.json(card);
         }
     })
 });
