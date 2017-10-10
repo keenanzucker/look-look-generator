@@ -104,6 +104,14 @@ describe('Card: models', () => {
         });
     });
 
+    it('#setsAuthor', (done) => {
+        expect(DUT.author).to.be.empty;
+        Card.setAuthor(DUT._id, 'a author', (updated) => {
+            expect(updated.author).to.equal('a author');
+            done();
+        });
+    });
+
     it('#setsImage', (done) => {
         expect(DUT.image).to.be.empty;
         Card.setImage(DUT._id, 'a image', (updated) => {
