@@ -1,13 +1,22 @@
 'use strict';
 
-export const showName = () => {
+export const setAuthor = (author) => {
     return {
-        type: 'SHOW-NAME'
+        type: 'SET-AUTHOR',
+        author
+    }
+}
+
+export const setName = (name) => {
+    return {
+        type: 'SET-NAME',
+        name
     };
 };
 
-export const showPicture = () => {
+export const setPicture = (url) => {
     return {
-        type: 'SHOW-PICTURE'
+        type: 'SET-PICTURE',
+        url
     };
 };

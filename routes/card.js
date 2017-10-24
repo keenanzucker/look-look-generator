@@ -90,8 +90,9 @@ router.post('/set-description/', (req, res) => {
 });
 
 router.post('/set-author/', (req, res) => {
-    
+    console.log(req.body);
     CardModel.setAuthor(req.body.id, req.body.author, (card) => {
+        console.log(card);
         if (!card) {
             res.json({error: 'Could not set author'});
         } else {

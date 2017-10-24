@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var auth = require('./auth');
+// var auth = require('./auth');
 
 // TODO Set these environment variables
 var env = process.env.NODE_ENV;

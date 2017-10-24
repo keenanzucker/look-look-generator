@@ -1,13 +1,13 @@
 'use strict';
 
-export const toName = () => {
+export const nextSlide = () => {
     return {
-        type: 'TO-NAME'
+        type: 'NEXT-SLIDE',
     };
 };
 
-export const toPicture = () => {
+export const prevSlide = () => {
     return {
-        type: 'TO-PICTURE'
+        type: 'PREV-SLIDE',
     };
 };
