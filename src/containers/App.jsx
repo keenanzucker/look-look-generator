@@ -10,8 +10,6 @@ import Store from '../store';
 
 import Welcome from 'Containers/Welcome.jsx';
 
-// import UiActions from 'Actions/ui';
-
 class App extends Component {
     render() {
         return (

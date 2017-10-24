@@ -11,3 +11,10 @@ export const prevSlide = () => {
         type: 'PREV-SLIDE',
     };
 };
+
+export const setSlide = (slideNumber) => {
+    return {
+        type: 'SET-SLIDE',
+        slideNumber
+    }
+}

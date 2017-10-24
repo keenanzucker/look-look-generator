@@ -13,11 +13,11 @@ class CardView extends Component {
 
     render() {
         return (
-            <div className="card-view">
-                <br />
-                <br />
+            <div className="card-view" style={{padding: 50}}>
                 <h1>Card View</h1>
                 <h2>Author: {this.props.state.author}</h2>
+                <h2>Name: {this.props.state.name}</h2>
+                <h2>Image: {this.props.state.image}</h2>
             </div>
         );
     }

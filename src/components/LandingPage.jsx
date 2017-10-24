@@ -59,14 +59,17 @@ class LandingPage extends Component {
     };
 
     render() {
-        return (
-            <div className="landing-page" >
-                <h1>Welcome to Look Look</h1>
-                <h2>Please enter your name:</h2>
-                <input type="text" id="enter-author" ref="author" /> 
-                <button id="submit-author" onClick={this.handleSubmit}> GO </button>
-            </div>
-        );
+        if (this.props.author) return (<div></div>);
+        else {
+            return (
+                <div className="landing-page" >
+                    <h1>Welcome to Look Look</h1>
+                    <h2>Please enter your name:</h2>
+                    <input type="text" id="enter-author" ref="author" /> 
+                    <button id="submit-author" onClick={this.handleSubmit}> GO </button>
+                </div>
+            );
+        }
     }
 }
 
