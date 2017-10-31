@@ -21,6 +21,13 @@ export const setImage = (url) => {
     };
 };
 
+export const setHabitat = (habitat) => {
+    return {
+        type: 'SET-HABITAT',
+        habitat
+    };
+};
+
 export const setDomain = (domain) => {
     return {
         type: 'SET-DOMAIN',
@@ -28,9 +35,58 @@ export const setDomain = (domain) => {
     };
 };
 
-export const setHabitat = (habitat) => {
+export const setLifespan = (lifespan) => {
     return {
-        type: 'SET-HABITAT',
-        habitat
+        type: 'SET-LIFESPAN',
+        lifespan
+    };
+};
+
+export const setSize = (size) => {
+    return {
+        type: 'SET-SIZE',
+        size
+    };
+};
+
+export const setTrophicLevel = (trophicLevel) => {
+    return {
+        type: 'SET-TROPHIC-LEVEL',
+        trophicLevel
+    };
+};
+
+export const setTitle = (title) => {
+    return {
+        type: 'SET-TITLE',
+        title
+    };
+};
+
+export const setDescription = (description) => {
+    return {
+        type: 'SET-DESCRIPTION',
+        description
+    };
+};
+
+export const setNocturnal = (nocturnal) => {
+    return {
+        type: 'SET-NOCTURNAL',
+        nocturnal
+    };
+};
+
+export const setMap = (map) => {
+    return {
+        type: 'SET-MAP',
+        map
+    };
+};
+
+export const setSuperDefender = (superDefender) => {
+    return {
+        type: 'SET-SUPER-DEFENDER',
+        superDefender
     };
 };
