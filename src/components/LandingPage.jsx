@@ -3,6 +3,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Form, Button, Input, Icon} from 'antd';
+const FormItem = Form.Item;
+
 import * as cardActions from '../actions/card.js';
 
 class LandingPage extends Component {
@@ -55,19 +58,35 @@ class LandingPage extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.getNewCardId(this.refs.author.value);
+        console.log(this.props.form);
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+              console.log('Received values of form: ', values);
+              this.getNewCardId(values.author);
+            }
+          });
     };
 
     render() {
-        if (this.props.author) return (<div></div>);
+        if (this.props.author) return (<span></span>);
         else {
+            const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;            
+            const authorError = isFieldTouched('author') && getFieldError('author');
             return (
-                <div className="landing-page" >
+                <Form className="landing-page" onSubmit={this.handleSubmit} layout="inline">
                     <h1>Welcome to Look Look</h1>
                     <h2>Please enter your name:</h2>
-                    <input type="text" id="enter-author" ref="author" /> 
-                    <button id="submit-author" onClick={this.handleSubmit}> GO </button>
-                </div>
+                    <FormItem validateStatus={authorError ? 'error' : ''} help={authorError || ''}> 
+                        {getFieldDecorator('author', {
+                            rules: [{ required: true, message: 'Please enter your name' }],
+                        })(
+                            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="author" />
+                        )}
+                    </FormItem>
+                    <FormItem> 
+                        <Button type="primary" htmlType="submit">GO </Button>
+                    </FormItem>
+                </Form>
             );
         }
     }

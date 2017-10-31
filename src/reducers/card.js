@@ -29,41 +29,41 @@ export default function card(state = {}, action) {
     
         case 'SET-LIFESPAN':
             return {
-                ...state, domain: action.lifespan
+                ...state, lifespan: action.lifespan
             }
         case 'SET-SIZE':
             return {
-                ...state, domain: action.size
+                ...state, size: action.size
             }
             
         case 'SET-TROPHIC-LEVEL':
             return {
-                ...state, domain: action.trophicLevel
+                ...state, trophicLevel: action.trophicLevel
             }
         
         case 'SET-TITLE':
             return {
-                ...state, domain: action.title
+                ...state, title: action.title
             }
 
         case 'SET-DESCRIPTION':
             return {
-                ...state, domain: action.description
+                ...state, description: action.description
             }
         
         case 'SET-NOCTURNAL':
             return {
-                ...state, domain: action.nocturnal
+                ...state, nocturnal: action.nocturnal
             }
         
         case 'SET-MAP':
             return {
-                ...state, domain: action.map
+                ...state, map: action.map
             }
 
         case 'SET-SUPER-DEFENDER':
             return {
-                ...state, domain: action.superDefender
+                ...state, superDefender: action.superDefender
             }
 
         default:

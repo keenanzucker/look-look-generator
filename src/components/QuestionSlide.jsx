@@ -65,7 +65,6 @@ class QuestionSlide extends Component {
             case 11:
                 questionSlide = (<SuperDefender />);
                 break;
-
             default:
                 return;
         }

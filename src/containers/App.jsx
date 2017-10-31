@@ -1,6 +1,7 @@
 'use strict';
 
 import '../css/app.less';
+import 'antd/dist/antd.less';
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';

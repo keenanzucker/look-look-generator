@@ -6,7 +6,9 @@ import { bindActionCreators } from 'redux';
 import * as cardActions from '../actions/card.js';
 import FormBox from './FormBox.jsx';
 import CardView from '../components/CardView.jsx';
+import { Row, Col } from 'antd';
 
+// Generate Component contains the two side-by-side components, the Form and the Card
 class Generate extends Component {
 
     constructor(props) {
@@ -14,12 +16,18 @@ class Generate extends Component {
     }
 
     render() {
-        if (!this.props.card.author) return (<h1></h1>);
+        if (!this.props.card.author) return (<span></span>);
         else {
             return (
                 <div className="generate-container" >
-                    <FormBox />
-                    <CardView />
+                    <Row>
+                        <Col span={12}>
+                            <FormBox />
+                        </Col>
+                        <Col span={12}>
+                            <CardView />
+                        </Col>
+                    </Row>
                 </div>
             );
         }

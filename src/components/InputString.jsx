@@ -1,8 +1,10 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { Form, Button, Input } from 'antd';
+const FormItem = Form.Item;
 
-export default class InputString extends Component {
+class InputStringForm extends Component {
 
     constructor(props) {
         super(props);
@@ -14,16 +16,29 @@ export default class InputString extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.refs.input.value);
-        this.props.onSubmit(this.refs.input.value);
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+              this.props.onSubmit(values.value);
+            }
+          });
     }
 
     render() {
+        const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;            
+        const valueError = isFieldTouched('value') && getFieldError('value');
         return (
-            <div className="input-string">
-                <input type="text" ref="input"/>
-                <button onClick={this.handleSubmit}>Set</button>
-            </div>
-        );
+            <Form className="input-string" onSubmit={this.handleSubmit} layout="inline">
+                <FormItem validateStatus={valueError ? 'error' : ''} help={valueError || ''}> 
+                    {getFieldDecorator('value', {
+                        rules: [{ required: true, message: 'Please enter a value' }],
+                    })(<Input placeholder="value" />)}
+                </FormItem>
+                <FormItem> 
+                    <Button type="primary" htmlType="submit">Set </Button>
+                </FormItem>
+            </Form>
+        )
     }
 }
+const InputString = Form.create()(InputStringForm);
+export default InputString;
