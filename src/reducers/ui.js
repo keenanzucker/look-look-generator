@@ -29,10 +29,15 @@ export default function ui(state={currentSlide:0}, action) {
                 currentSlide: state.currentSlide + 1
             }
         case 'PREV-SLIDE':  
-        return {
-            ...state, 
-            currentSlide: state.currentSlide - 1
-        }
+            return {
+                ...state, 
+                currentSlide: state.currentSlide - 1
+            }
+        case 'SET-SLIDE':
+            return {
+                ...state,
+                currentSlide: action.slideNumber
+            }
         default:
             return state;
     }   

@@ -1,6 +1,7 @@
 'use strict';
 
 import '../css/app.less';
+import 'antd/dist/antd.less';
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
@@ -9,8 +10,6 @@ import { Provider } from 'react-redux'
 import Store from '../store';
 
 import Welcome from 'Containers/Welcome.jsx';
-
-// import UiActions from 'Actions/ui';
 
 class App extends Component {
     render() {
