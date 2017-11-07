@@ -31,9 +31,6 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015', 'react', 'stage-2'],
-                    // plugins: [
-                    //     ['import', { libraryName: "antd", style: true }]
-                    // ]
                 }
             },
             {
@@ -43,7 +40,27 @@ module.exports = {
                     { loader: 'css-loader', options: { importLoaders: 1 } },
                     { loader: 'less-loader' }
                 ]
+            },
+            { 
+                test: /\.(png|jpg|svg)$/, 
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {}  
+                    }
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                        limit: 8192
+                        }
+                    }
+                ]
             }
-        ]
+        ],
     },
 };

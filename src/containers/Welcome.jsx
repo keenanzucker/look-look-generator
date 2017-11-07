@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Generate from './Generate.jsx';
 import LandingPage from '../components/LandingPage.jsx';
-import { Form} from 'antd';
+import { Form } from 'antd';
 
 export default class Welcome extends Component {
 

@@ -5,23 +5,44 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import InputString from '../InputString.jsx';
 import * as cardActions from '../../actions/card';
+import constants from '../../../public/assets/constants.js';
+import { Select } from 'antd';
+const Option = Select.Option;
 
 class Habitat extends Component {
 
     constructor(props) {
         super(props);
-        this.setHabitatAPI = this.setHabitatAPI.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.habitats = constants.CONSTANTS.HABITATS;
     }
 
-    setHabitatAPI(habitat) {
-        this.props.cardActions.setHabitat(habitat);
+    handleChange(value) {
+        console.log("value: " + value);
+        this.props.cardActions.setHabitat(parseInt(value));
     }
 
     render() {
+        let dropdownItems = [];
+        this.habitats.forEach((habitat, key) => {
+            dropdownItems.push(
+                <Option key={key} value={key.toString()}>
+                    <div className="dropdown-habitat-container">
+                        <img className="dropdown-habitat" src={habitat.link}/>
+                        <h3>{habitat.name}</h3>
+                    </div>
+                </Option>
+            )
+        });
+
+        console.log(dropdownItems);
+
         return (
             <div className="habitat-slide">
                 <h1>Habitat of Animal: </h1>
-                <InputString onSubmit={this.setHabitatAPI}/>
+                <Select defaultValue="Habitat" onChange={this.handleChange} style={{ width: 150 }}> 
+                    {dropdownItems}
+                </Select>
             </div>
         );
     }

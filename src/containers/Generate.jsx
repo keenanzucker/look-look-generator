@@ -35,7 +35,6 @@ class Generate extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
         card: state.card,
         ui: state.ui

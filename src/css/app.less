@@ -7,6 +7,7 @@
     height: 420px;
     position: relative;
     background-color: black;
+    color: white;
 }
 
 .card-name {
@@ -58,11 +59,14 @@
 
 .card-habitat {
     position: absolute;
-    border: white solid 1px;
     width: 60px;
     height: 80px;
     top: 70px;
     left: 10px;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-lifespan {
@@ -86,20 +90,18 @@
 .card-trophic-level {
     position: absolute;
     border: white solid 1px;
-    width: 278px;
+    width: 280px;
     height: 30px;
     top: 305px;
     // right: 10px;
     left: 10px;
 }
 
-.card-title {
+.card-word-box {
     position: absolute;
-    border: white solid 1px;
-    width: 278px;
+    width: 280px;
     height: 65px;
     top: 340px;
-    // right: 10px;
     left: 10px
 }
 
@@ -109,4 +111,19 @@
 
 .card-super-defender {
     visibility: hidden;
+}
+
+.dropdown-habitat {
+    width: 20px;
+}
+
+.dropdown-habitat-container {
+    display: flex;
+    height: 30px;
+    align-items: center;
+}
+
+.habitat-card-name {
+    position: absolute;
+    top: 50px;
 }
