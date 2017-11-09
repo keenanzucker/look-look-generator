@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import InputString from '../InputString.jsx';
 import * as cardActions from '../../actions/card';
+import { InputNumber } from 'antd';
 
 class Lifespan extends Component {
 
@@ -21,7 +22,7 @@ class Lifespan extends Component {
         return (
             <div className="lifespan-slide">
                 <h1>Lifespan of Animal: </h1>
-                <InputString onSubmit={this.setLifespanAPI}/>
+                <InputNumber min={1} max={100} defaultValue={1} onChange={this.setLifespanAPI} />
             </div>
         );
     }

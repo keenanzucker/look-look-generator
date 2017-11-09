@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as uiActions from '../actions/ui';
 import Constants from '../../public/assets/constants.js';
-import Forest from '../../public/assets/habitats/Forest.svg';
 let constants = Constants.CONSTANTS;
 
 class CardView extends Component {
@@ -17,12 +16,20 @@ class CardView extends Component {
     render() {
         console.log(this.props.state);
 
-        let habitatImg, habitatName, habitatColor;
+        let habitatImg, habitatName, habitatColor, lifespanHeart, trophicImg;
         
         if (this.props.state.habitat >= 0) {
             habitatImg = <img className="habitat-card-image" src={constants.HABITATS[this.props.state.habitat].link} width={50} />;
-            habitatName = <h3 className="habitat-card-name">{constants.HABITATS[this.props.state.habitat].name}</h3>
+            habitatName = <h3 className="habitat-card-name">{constants.HABITATS[this.props.state.habitat].name.toUpperCase()}</h3>
             habitatColor = constants.HABITATS[this.props.state.habitat].color;
+        }
+
+        if (this.props.state.lifespan >= 0) {
+            lifespanHeart = <img className="lifespan-card-heart" src={constants.HABITATS[this.props.state.habitat].heart} width={30} />;
+        }
+
+        if (this.props.state.trophicLevel > 0) {
+            trophicImg = <img className="trophic-card" src={constants.TROPHIC[this.props.state.trophicLevel].link} width={280} height={30}/>
         }
 
         return (
@@ -37,9 +44,14 @@ class CardView extends Component {
                     {habitatImg}
                     {habitatName}
                 </div>
-                <div className="card-lifespan">Lifespan: {this.props.state.lifespan}</div>
+                <div className="card-lifespan">
+                    {lifespanHeart}
+                    Lifespan: {this.props.state.lifespan}
+                </div>
                 <div className="card-size">Size: {this.props.state.size}</div>
-                <div className="card-trophic-level">Tropic Level: {this.props.state.trophicLevel}</div>
+                <div className="card-trophic-level">
+                    {trophicImg}
+                </div>
                 <div className="card-word-box" style={{backgroundColor:habitatColor}}>
                     <h3 className="card-title">title: {this.props.state.title}</h3>
                     <div className="card-description">description: {this.props.state.description} </div>

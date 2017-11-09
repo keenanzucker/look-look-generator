@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import InputString from '../InputString.jsx';
 import * as cardActions from '../../actions/card';
+import { InputNumber } from 'antd';
 
 class Trophic extends Component {
 
@@ -21,7 +22,7 @@ class Trophic extends Component {
         return (
             <div className="trophic-slide">
                 <h1>Trophic Level?: </h1>
-                <InputString onSubmit={this.setTrophicAPI}/>
+                <InputNumber min={1} max={5} defaultValue={1} onChange={this.setTrophicAPI} />
             </div>
         );
     }

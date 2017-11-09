@@ -33,7 +33,7 @@ class FormBox extends Component {
                 {this.props.ui.currentSlide > 0 ? (
                     <Button size="small" type="normal" onClick={this.handlePrev}><Icon type="left" />Previous</Button>) : <div></div> }
                 {this.props.ui.currentSlide < 11 ? (
-                    <Button size="small" type="normal" onClick={this.handleNext}><Icon type="right" />Next</Button>) : <div></div> }
+                    <Button size="small" type="normal" onClick={this.handleNext}>Next<Icon type="right" /></Button>) : <div></div> }
             </div>
         );
     }
