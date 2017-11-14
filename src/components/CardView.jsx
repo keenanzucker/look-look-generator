@@ -16,45 +16,66 @@ class CardView extends Component {
     render() {
         console.log(this.props.state);
 
-        let habitatImg, habitatName, habitatColor, lifespanHeart, trophicImg;
+        let habitatImg, habitatName, habitatColor, lifespanHeart, trophicImg, lifespanName, domainName, domainImg, feet, inches, sizeName;
         
         if (this.props.state.habitat >= 0) {
-            habitatImg = <img className="habitat-card-image" src={constants.HABITATS[this.props.state.habitat].link} width={50} />;
+            habitatImg = <img className="habitat-card-image" src={constants.HABITATS[this.props.state.habitat].link} width={60} />;
             habitatName = <h3 className="habitat-card-name">{constants.HABITATS[this.props.state.habitat].name.toUpperCase()}</h3>
             habitatColor = constants.HABITATS[this.props.state.habitat].color;
+
+            if (this.props.state.domain >= 0) {
+                domainImg = <img className="domain-card-image" src={constants.HABITATS[this.props.state.habitat].domain[this.props.state.domain].link} width={20} />;
+                domainName = <h3 className="domain-card-name">{constants.HABITATS[this.props.state.habitat].domain[this.props.state.domain].name.toUpperCase()}</h3>
+            }
+        }
+
+        if (this.props.state.size) {
+            feet = <h3 className="size-card-feet-number" style={{color:habitatColor}}>{this.props.state.size.feet}<span className="size-small">FT</span></h3>;
+            inches = <h3 className="size-card-inches-number" style={{color:habitatColor}}> {this.props.state.size.inches}<span className="size-small">IN</span></h3>;
+            sizeName = <h3 className="size-card-name">SIZE</h3>
         }
 
         if (this.props.state.lifespan >= 0) {
-            lifespanHeart = <img className="lifespan-card-heart" src={constants.HABITATS[this.props.state.habitat].heart} width={30} />;
+            lifespanHeart = <img className="lifespan-card-heart" src={constants.HABITATS[this.props.state.habitat].heart} width={40} />;
+            lifespanName = <h3 className="lifespan-card-name">LIFESPAN</h3>
         }
 
         if (this.props.state.trophicLevel > 0) {
-            trophicImg = <img className="trophic-card" src={constants.TROPHIC[this.props.state.trophicLevel].link} width={280} height={30}/>
+            trophicImg = <img className="trophic-card" src={constants.TROPHIC[this.props.state.trophicLevel].link} width={272} height={30}/>
         }
 
         return (
             <div className="card-view">
                 <div className="card-name">{this.props.state.name}</div>
-                <div className="card-domain">Domain: {this.props.state.domain}</div>
+                <div className="card-domain">
+                    {domainImg}
+                    {domainName}
+                </div>
                 <div className="card-map">map: {this.props.state.map}</div>
                 <div className="card-author">{this.props.state.author}</div>
-                <div className="card-image">Image: {this.props.state.image}</div>
+                <div className="card-image-container">
                     <img className="card-image" src={this.props.state.image} />
+                </div>
                 <div className="card-habitat">
                     {habitatImg}
                     {habitatName}
                 </div>
                 <div className="card-lifespan">
                     {lifespanHeart}
-                    Lifespan: {this.props.state.lifespan}
+                    <div className="card-lifespan-number">{this.props.state.lifespan}</div>
+                    {lifespanName}
                 </div>
-                <div className="card-size">Size: {this.props.state.size}</div>
+                <div className="card-size">
+                    {feet}
+                    {inches}
+                    {sizeName}
+                </div>
                 <div className="card-trophic-level">
                     {trophicImg}
                 </div>
                 <div className="card-word-box" style={{backgroundColor:habitatColor}}>
-                    <h3 className="card-title">title: {this.props.state.title}</h3>
-                    <div className="card-description">description: {this.props.state.description} </div>
+                    <h3 className="card-title">{this.props.state.title}</h3>
+                    <div className="card-description">{this.props.state.description} </div>
                 </div>
                 <div className="card-super-defender">superDefender: {this.props.state.superDefender}</div>
             </div>

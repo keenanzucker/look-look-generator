@@ -11,8 +11,7 @@ import Habitat from './slides/Habitat.jsx';
 import Lifespan from './slides/Lifespan.jsx';
 import Size from './slides/Size.jsx';
 import Trophic from './slides/Trophic.jsx';
-import Title from './slides/Title.jsx';
-import Description from './slides/Description.jsx';
+import TitleDescription from './slides/TitleDescription.jsx';
 import Nocturnal from './slides/Nocturnal.jsx';
 import Map from './slides/Map.jsx';
 import SuperDefender from './slides/SuperDefender.jsx';
@@ -51,18 +50,15 @@ class QuestionSlide extends Component {
                 questionSlide = (<Trophic />);
                 break;
             case 7:
-                questionSlide = (<Title />);
+                questionSlide = (<TitleDescription />);
                 break;
             case 8:
-                questionSlide = (<Description />);
-                break;
-            case 9:
                 questionSlide = (<Nocturnal />);
                 break;
-            case 10:
+            case 9:
                 questionSlide = (<Map />);
                 break;
-            case 11:
+            case 10:
                 questionSlide = (<SuperDefender />);
                 break;
             default:

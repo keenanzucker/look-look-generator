@@ -34,8 +34,6 @@ class LandingPage extends Component {
 
     // call the setAuthor action after setting author through API
     setAuthorAPI(author, cardId) {
-        console.log('author is now: :', author );
-
         fetch('/api/v1/card/set-author', {
             method: 'POST',
             headers: {
@@ -48,7 +46,6 @@ class LandingPage extends Component {
         })
         .then(data => data.json())
         .then(card => {
-            console.log(card);
             this.props.cardActions.setAuthor(card.author);
         })
         .catch(err => {
@@ -58,10 +55,8 @@ class LandingPage extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.props.form);
         this.props.form.validateFields((err, values) => {
             if (!err) {
-              console.log('Received values of form: ', values);
               this.getNewCardId(values.author);
             }
           });

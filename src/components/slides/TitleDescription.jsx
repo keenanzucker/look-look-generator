@@ -6,22 +6,30 @@ import { bindActionCreators } from 'redux';
 import InputString from '../InputString.jsx';
 import * as cardActions from '../../actions/card';
 
-class Title extends Component {
+import { Input } from 'antd';
+
+class TitleDescription extends Component {
 
     constructor(props) {
         super(props);
         this.setTitleAPI = this.setTitleAPI.bind(this);
+        this.setDescriptionAPI = this.setDescriptionAPI.bind(this);
     }
 
     setTitleAPI(title) {
-        this.props.cardActions.setTitle(title);
+        this.props.cardActions.setTitle(title.toUpperCase());
+    }
+
+    setDescriptionAPI(description) {
+        this.props.cardActions.setDescription(description);
     }
 
     render() {
         return (
             <div className="Title-slide">
                 <h1>Title of Animal: </h1>
-                <InputString onSubmit={this.setTitleAPI}/>
+                <InputString onSubmit={this.setTitleAPI} style={{paddingBottom:20}}/>
+                <InputString textArea={true} onSubmit={this.setDescriptionAPI}/>
             </div>
         );
     }
@@ -39,4 +47,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Title);
+export default connect(mapStateToProps, mapDispatchToProps)(TitleDescription);

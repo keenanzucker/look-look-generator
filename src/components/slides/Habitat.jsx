@@ -18,7 +18,6 @@ class Habitat extends Component {
     }
 
     handleChange(value) {
-        console.log("value: " + value);
         this.props.cardActions.setHabitat(parseInt(value));
     }
 
@@ -34,8 +33,6 @@ class Habitat extends Component {
                 </Option>
             )
         });
-
-        console.log(dropdownItems);
 
         return (
             <div className="habitat-slide">

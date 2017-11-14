@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Icon } from 'antd';
 import QuestionSlide from '../components/QuestionSlide.jsx';
+import Constants from '../../public/assets/constants.js';
+let constants = Constants.CONSTANTS;
 import * as uiActions from '../actions/ui';
 
 class FormBox extends Component {
@@ -16,6 +18,8 @@ class FormBox extends Component {
     }
 
     handleNext() {
+        console.log(this);
+        console.log(constants);
         this.props.uiActions.nextSlide();
     }
 
@@ -27,12 +31,11 @@ class FormBox extends Component {
         return (
             <div className="form-box" style={{padding: 50}}>
                 <h1>Form Box</h1>
-                <h2>Current Slide: {this.props.ui.currentSlide}</h2>
                 <QuestionSlide />
                 <br />
                 {this.props.ui.currentSlide > 0 ? (
                     <Button size="small" type="normal" onClick={this.handlePrev}><Icon type="left" />Previous</Button>) : <div></div> }
-                {this.props.ui.currentSlide < 11 ? (
+                {this.props.ui.currentSlide < 10 ? (
                     <Button size="small" type="normal" onClick={this.handleNext}>Next<Icon type="right" /></Button>) : <div></div> }
             </div>
         );
