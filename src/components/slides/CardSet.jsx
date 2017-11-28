@@ -6,22 +6,22 @@ import { bindActionCreators } from 'redux';
 import InputString from '../InputString.jsx';
 import * as cardActions from '../../actions/card';
 
-class Map extends Component {
+class CardSet extends Component {
 
     constructor(props) {
         super(props);
-        this.setMapAPI = this.setMapAPI.bind(this);
+        this.setCardSetAPI = this.setCardSetAPI.bind(this);
     }
 
-    setMapAPI(map) {
-        this.props.cardActions.setMap(map);
+    setCardSetAPI(cardSet) {
+        this.props.cardActions.setCardSet(cardSet);
     }
 
     render() {
         return (
-            <div className="map-slide">
-                <h1>Map: </h1>
-                <InputString onSubmit={this.setMapAPI}/>
+            <div className="set-slide">
+                <h1>CardSet: </h1>
+                <InputString onSubmit={this.setCardSetAPI}/>
             </div>
         );
     }
@@ -39,4 +39,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map);
+export default connect(mapStateToProps, mapDispatchToProps)(CardSet);

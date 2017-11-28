@@ -56,9 +56,9 @@ export default function card(state = {}, action) {
                 ...state, nocturnal: action.nocturnal
             }
         
-        case 'SET-MAP':
+        case 'SET-CARD-SET':
             return {
-                ...state, map: action.map
+                ...state, cardSet: action.cardSet
             }
 
         case 'SET-SUPER-DEFENDER':

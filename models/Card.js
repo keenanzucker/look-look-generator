@@ -18,7 +18,7 @@ var cardSchema = mongoose.Schema({
     name: String,
     title: String,
     description: String,
-    map: [Boolean],
+    cardSet: String,
     image: String,
     author: String
 });
@@ -38,7 +38,7 @@ cardSchema.statics.makeCard = function(cb) {
         name: '',
         title: '',
         description: '',
-        map: [false, false, false, false, false, false, false, false],
+        cardSet: '',
         image: '',
         author: ''
     };
@@ -158,20 +158,19 @@ cardSchema.statics.setImage = function(id, image, cb) {
     );
 };
 
-cardSchema.statics.setMap = function(id, map, cb) {
+cardSchema.statics.setCardSet = function(id, cardSet, cb) {
     this.findByIdAndUpdate(
         id,
-        {$set: {map: map}},
+        {$set: {cardSet: cardSet}},
         {$safe: true, upsert: false, new: true},
         (err, card) => {
-            if (err) return console.error('Could not update map on card', id, map, err);
+            if (err) return console.error('Could not update cardSet on card', id, cardSet, err);
             cb(card);
         }
     );
 };
 
 cardSchema.statics.setNocturnal = function(id, nocturnal, cb) {
-    console.log("Setting nocturnal " + nocturnal);
     this.findByIdAndUpdate(
         id,
         {$set: {nocturnal: nocturnal}},

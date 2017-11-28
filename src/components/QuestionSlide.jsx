@@ -13,7 +13,7 @@ import Size from './slides/Size.jsx';
 import Trophic from './slides/Trophic.jsx';
 import TitleDescription from './slides/TitleDescription.jsx';
 import Nocturnal from './slides/Nocturnal.jsx';
-import Map from './slides/Map.jsx';
+import CardSet from './slides/CardSet.jsx';
 import SuperDefender from './slides/SuperDefender.jsx';
 
 import * as uiActions from '../actions/ui';
@@ -56,7 +56,7 @@ class QuestionSlide extends Component {
                 questionSlide = (<Nocturnal />);
                 break;
             case 9:
-                questionSlide = (<Map />);
+                questionSlide = (<CardSet />);
                 break;
             case 10:
                 questionSlide = (<SuperDefender />);

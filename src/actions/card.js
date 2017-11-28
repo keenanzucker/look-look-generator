@@ -77,10 +77,10 @@ export const setNocturnal = (nocturnal) => {
     };
 };
 
-export const setMap = (map) => {
+export const setCardSet = (cardSet) => {
     return {
-        type: 'SET-MAP',
-        map
+        type: 'SET-CARD-SET',
+        cardSet
     };
 };
 

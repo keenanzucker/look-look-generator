@@ -57,7 +57,7 @@ class CardView extends Component {
                     {domainImg}
                     {domainName}
                 </div>
-                <div className="card-map">map: {this.props.state.map}</div>
+                <div className="card-set-name">set: {this.props.state.cardSet}</div>
                 <div className="card-author">{this.props.state.author}</div>
                 <div className="card-image-container">
                     <img className="card-image" src={this.props.state.image} />

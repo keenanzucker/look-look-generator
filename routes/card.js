@@ -112,11 +112,11 @@ router.post('/set-image/', (req, res) => {
     })
 });
 
-router.post('/set-map/', (req, res) => {
+router.post('/set-set/', (req, res) => {
     
-    CardModel.setMap(req.body.id, req.body.map, (card) => {
+    CardModel.setSet(req.body.id, req.body.set, (card) => {
         if (!card) {
-            res.json({error: 'Could not set map'});
+            res.json({error: 'Could not set set'});
         } else {
             res.json(card);
         }

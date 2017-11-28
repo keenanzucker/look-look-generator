@@ -15,7 +15,7 @@ const defaultState = {
     name: '',
     title: '',
     description: '',
-    map: [false, false, false, false, false, false, false, false],
+    set: '',
     image: '',
     author: '',
     currentSlide: 0
