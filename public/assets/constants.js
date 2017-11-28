@@ -217,5 +217,18 @@ module.exports.CONSTANTS = {
             name: "Level5",
             link: "assets/trophic/Trophic_Level5.svg",
         }
+    ],
+
+    NOCTURNAL : [
+        {
+            name: "Diurnal",
+            link: "assets/nocturnal/Sun.svg",
+            icon: "assets/nocturnal/SunIcon.svg",
+        },
+        {
+            name: "Nocturnal",
+            link: "assets/nocturnal/Moon.svg",
+            icon: "assets/nocturnal/MoonIcon.svg",
+        }
     ]
 }

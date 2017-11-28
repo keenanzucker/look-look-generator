@@ -171,6 +171,7 @@ cardSchema.statics.setMap = function(id, map, cb) {
 };
 
 cardSchema.statics.setNocturnal = function(id, nocturnal, cb) {
+    console.log("Setting nocturnal " + nocturnal);
     this.findByIdAndUpdate(
         id,
         {$set: {nocturnal: nocturnal}},

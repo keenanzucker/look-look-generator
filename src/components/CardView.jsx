@@ -16,7 +16,7 @@ class CardView extends Component {
     render() {
         console.log(this.props.state);
 
-        let habitatImg, habitatName, habitatColor, lifespanHeart, trophicImg, lifespanName, domainName, domainImg, feet, inches, sizeName;
+        let habitatImg, habitatName, habitatColor, lifespanHeart, trophicImg, lifespanName, domainName, domainImg, feet, inches, sizeName, nocturnalImg;
         
         if (this.props.state.habitat >= 0) {
             habitatImg = <img className="habitat-card-image" src={constants.HABITATS[this.props.state.habitat].link} width={60} />;
@@ -42,6 +42,12 @@ class CardView extends Component {
 
         if (this.props.state.trophicLevel > 0) {
             trophicImg = <img className="trophic-card" src={constants.TROPHIC[this.props.state.trophicLevel].link} width={272} height={30}/>
+        }
+
+        if (this.props.state.nocturnal === false) {
+            nocturnalImg = <img className="nocturnal-img-triangle" src={constants.NOCTURNAL[0].link} width={50}/>
+        } else if (this.props.state.nocturnal === true) {
+            nocturnalImg = <img className="nocturnal-img-triangle" src={constants.NOCTURNAL[1].link} width={50}/>
         }
 
         return (
@@ -76,6 +82,9 @@ class CardView extends Component {
                 <div className="card-word-box" style={{backgroundColor:habitatColor}}>
                     <h3 className="card-title">{this.props.state.title}</h3>
                     <div className="card-description">{this.props.state.description} </div>
+                </div>
+                <div className="card-nocturnal">
+                    {nocturnalImg}
                 </div>
                 <div className="card-super-defender">superDefender: {this.props.state.superDefender}</div>
             </div>
