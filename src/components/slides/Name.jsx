@@ -14,7 +14,23 @@ class Name extends Component {
     }
 
     setNameAPI(name) {
-        this.props.cardActions.setName(name);
+        fetch('/api/v1/card/set-name', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                name: name
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setName(name);
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

@@ -5,6 +5,7 @@ var _ = require('underscore');
 
 mongoose.Promise = global.Promise;
 var cardSchema = mongoose.Schema({
+    id: String,
     habitat: Number,
     lifespan: Number,
     size: {
@@ -40,7 +41,8 @@ cardSchema.statics.makeCard = function(cb) {
         description: '',
         cardSet: '',
         image: '',
-        author: ''
+        author: '',
+        id: ''
     };
 
     this.create(newCard, (err, card) => {

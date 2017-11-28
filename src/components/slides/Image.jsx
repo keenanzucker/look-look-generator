@@ -13,8 +13,24 @@ class Image extends Component {
         this.setImageAPI = this.setImageAPI.bind(this);
     }
 
-    setImageAPI(imageUrl) {
-        this.props.cardActions.setImage(imageUrl);
+    setImageAPI(image) {
+        fetch('/api/v1/card/set-image', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                image: image
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setImage(image);
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

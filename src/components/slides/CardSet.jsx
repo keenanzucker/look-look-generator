@@ -14,7 +14,23 @@ class CardSet extends Component {
     }
 
     setCardSetAPI(cardSet) {
-        this.props.cardActions.setCardSet(cardSet);
+        fetch('/api/v1/card/set-card-set', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                cardSet: cardSet
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setCardSet(cardSet);
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

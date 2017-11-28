@@ -14,8 +14,24 @@ class Trophic extends Component {
         this.setTrophicAPI = this.setTrophicAPI.bind(this);
     }
 
-    setTrophicAPI(trophic) {
-        this.props.cardActions.setTrophicLevel(trophic);
+    setTrophicAPI(trophicLevel) {
+        fetch('/api/v1/card/set-trophic-level', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                trophicLevel: trophicLevel
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setTrophicLevel(trophicLevel);
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

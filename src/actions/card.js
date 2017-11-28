@@ -1,5 +1,12 @@
 'use strict';
 
+export const setCardId = (cardId) => {
+    return {
+        type: 'SET-CARD-ID',
+        cardId
+    }
+}
+
 export const setAuthor = (author) => {
     return {
         type: 'SET-AUTHOR',
@@ -14,10 +21,10 @@ export const setName = (name) => {
     };
 };
 
-export const setImage = (url) => {
+export const setImage = (image) => {
     return {
         type: 'SET-IMAGE',
-        url
+        image
     };
 };
 

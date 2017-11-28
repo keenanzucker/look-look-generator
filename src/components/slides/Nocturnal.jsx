@@ -18,8 +18,27 @@ class Nocturnal extends Component {
     }
 
     handleChange(value) {
-        if (parseInt(value) === 0) this.props.cardActions.setNocturnal(false);
-        else if (parseInt(value) === 1) this.props.cardActions.setNocturnal(true);
+        let nocturnal;
+        if (parseInt(value) === 0) nocturnal = false;
+        else if (parseInt(value) === 1) nocturnal = true;
+        
+        fetch('/api/v1/card/set-nocturnal', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                nocturnal: nocturnal
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setNocturnal(nocturnal);
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

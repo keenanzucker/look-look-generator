@@ -17,8 +17,24 @@ class Habitat extends Component {
         this.habitats = constants.CONSTANTS.HABITATS;
     }
 
-    handleChange(value) {
-        this.props.cardActions.setHabitat(parseInt(value));
+    handleChange(habitat) {
+        fetch('/api/v1/card/set-habitat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                habitat: habitat
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setHabitat(parseInt(habitat));
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

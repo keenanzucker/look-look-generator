@@ -18,8 +18,6 @@ class FormBox extends Component {
     }
 
     handleNext() {
-        console.log(this);
-        console.log(constants);
         this.props.uiActions.nextSlide();
     }
 

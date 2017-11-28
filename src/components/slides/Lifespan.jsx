@@ -15,7 +15,23 @@ class Lifespan extends Component {
     }
 
     setLifespanAPI(lifespan) {
-        this.props.cardActions.setLifespan(lifespan);
+        fetch('/api/v1/card/set-lifespan', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                lifespan: lifespan
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setLifespan(lifespan);
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

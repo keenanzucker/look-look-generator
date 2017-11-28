@@ -25,6 +25,7 @@ class LandingPage extends Component {
         })
         .then(data => data.json())
         .then(data => {
+            this.props.cardActions.setCardId(data.cardId);
             this.setAuthorAPI(author, data.cardId);
         })
         .catch(err => {

@@ -18,11 +18,26 @@ class Domain extends Component {
         this.domains = constants.CONSTANTS.HABITATS[this.currentHabitat].domain;
 
         console.log(this);
-        console.log(this.domains);
     }
 
     handleChange(domain) {
-        this.props.cardActions.setDomain(parseInt(domain));
+        fetch('/api/v1/card/set-domain', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                domain: domain
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setDomain(parseInt(domain));
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

@@ -34,8 +34,23 @@ class Size extends Component {
     }
 
     setSizeAPI() {
-        console.log(this.state);
-        this.props.cardActions.setSize(this.state);
+        fetch('/api/v1/card/set-size', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                size: this.state
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setSize(this.state);
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

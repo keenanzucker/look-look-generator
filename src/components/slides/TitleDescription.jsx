@@ -21,7 +21,23 @@ class TitleDescription extends Component {
     }
 
     setDescriptionAPI(description) {
-        this.props.cardActions.setDescription(description);
+        fetch('/api/v1/card/set-description', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                description: description
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setDescription(description);
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     render() {

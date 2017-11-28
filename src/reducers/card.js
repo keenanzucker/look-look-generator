@@ -2,6 +2,12 @@
 
 export default function card(state = {}, action) {
     switch (action.type) {
+
+        case 'SET-CARD-ID':
+            return {
+                ...state, cardId: action.cardId
+            }
+            
         case 'SET-AUTHOR':
             return {
                 ...state, author: action.author
@@ -14,7 +20,7 @@ export default function card(state = {}, action) {
 
         case 'SET-IMAGE':
             return {
-                ...state, image: action.url
+                ...state, image: action.image
             }
 
         case 'SET-HABITAT':
