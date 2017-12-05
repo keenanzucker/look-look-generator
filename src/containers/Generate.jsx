@@ -8,6 +8,7 @@ import FormBox from './FormBox.jsx';
 import CardView from '../components/CardView.jsx';
 import { Row, Col } from 'antd';
 
+
 // Generate Component contains the two side-by-side components, the Form and the Card
 class Generate extends Component {
 

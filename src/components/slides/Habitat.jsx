@@ -13,11 +13,10 @@ class Habitat extends Component {
 
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
         this.habitats = constants.CONSTANTS.HABITATS;
     }
 
-    handleChange(habitat) {
+    handleChange = (habitat) => {
         fetch('/api/v1/card/set-habitat', {
             method: 'POST',
             headers: {
@@ -53,6 +52,7 @@ class Habitat extends Component {
         return (
             <div className="habitat-slide">
                 <h1>Habitat of Animal: </h1>
+                <h2>This property must be set before moving on</h2>
                 <Select defaultValue="Habitat" onChange={this.handleChange} style={{ width: 150 }}> 
                     {dropdownItems}
                 </Select>

@@ -6,6 +6,7 @@ import Generate from './Generate.jsx';
 import LandingPage from '../components/LandingPage.jsx';
 import { Form } from 'antd';
 
+
 export default class Welcome extends Component {
 
     render() {

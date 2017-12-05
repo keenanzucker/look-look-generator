@@ -13,28 +13,36 @@ class FormBox extends Component {
 
     constructor(props) {
         super(props);
-        this.handleNext = this.handleNext.bind(this);
-        this.handlePrev = this.handlePrev.bind(this);
     }
 
-    handleNext() {
+    handleNext = () => {
         this.props.uiActions.nextSlide();
     }
 
-    handlePrev() {
+    handlePrev = () => {
         this.props.uiActions.prevSlide();
     }
 
     render() {
+        // Manually make sure habitat is set by disabling button until it is set
+        let nextButton;
+        if ((this.props.card.habitat < 0 || this.props.card.habitat === undefined) && this.props.ui.currentSlide === 2) {
+            nextButton = <Button className="next-button" size="default" type="normal" disabled onClick={this.handleNext}>Next<Icon type="right" /></Button>
+        } else if (this.props.ui.currentSlide >= 10) {
+            nextButton = <div></div>;
+        } else {
+            nextButton = <Button className="next-button" size="default" type="normal" onClick={this.handleNext}>Next<Icon type="right" /></Button>
+        }
+
         return (
             <div className="form-box" style={{padding: 50}}>
-                <h1>Form Box</h1>
                 <QuestionSlide />
                 <br />
-                {this.props.ui.currentSlide > 0 ? (
-                    <Button size="small" type="normal" onClick={this.handlePrev}><Icon type="left" />Previous</Button>) : <div></div> }
-                {this.props.ui.currentSlide < 10 ? (
-                    <Button size="small" type="normal" onClick={this.handleNext}>Next<Icon type="right" /></Button>) : <div></div> }
+                <div className="button-box">
+                    {this.props.ui.currentSlide > 0 ? (
+                        <Button className="prev-button" size="default" type="normal" onClick={this.handlePrev}><Icon type="left" />Previous</Button>) : <div></div> }
+                        {nextButton}
+                </div>
             </div>
         );
     }
