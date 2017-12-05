@@ -12,6 +12,17 @@ router.post('/new', (req, res) => {
     })
 });
 
+router.get('/get-cards', (req, res) => {
+
+    CardModel.getCards((cards) => {
+        if (!cards) {
+            res.json({error: 'Could not get cards'});
+        } else {
+            res.json(cards);
+        }
+    })
+})
+
 router.post('/set-habitat/', (req, res) => {
     
     CardModel.setHabitat(req.body.id, req.body.habitat, (card) => {

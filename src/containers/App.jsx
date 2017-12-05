@@ -5,7 +5,6 @@ import 'antd/dist/antd.less';
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-// import { Router, Route, browserHistory, Link } from 'react-router';
 import { Provider } from 'react-redux'
 import Store from '../store';
 import { Layout, Menu, Breadcrumb } from 'antd';

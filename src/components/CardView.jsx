@@ -14,7 +14,13 @@ class CardView extends Component {
     }
 
     render() {
-        console.log(this.props.state);
+        // console.log(this.props);
+        let propsObj;
+
+        if (this.props.props) propsObj = this.props.props;
+        else propsObj = this.props.state;
+
+        console.log(propsObj);
 
         let habitatImg, habitatName, habitatColor, lifespanHeart, trophicImg, lifespanName, domainName, domainImg, feet, inches, sizeName, nocturnalImg;
         

@@ -51,6 +51,15 @@ cardSchema.statics.makeCard = function(cb) {
     });
 };
 
+cardSchema.statics.getCards = function(cb) {
+    this.find({},
+        (err, cards) => {
+            if (err) return console.error('could not get all cards', cards);
+            cb(cards);
+        }
+    );
+}
+
 cardSchema.statics.setHabitat = function(id, habitat, cb) {
     this.findByIdAndUpdate(
         id,
