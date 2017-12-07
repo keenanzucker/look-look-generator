@@ -12,15 +12,29 @@ class TitleDescription extends Component {
 
     constructor(props) {
         super(props);
-        this.setTitleAPI = this.setTitleAPI.bind(this);
-        this.setDescriptionAPI = this.setDescriptionAPI.bind(this);
     }
 
-    setTitleAPI(title) {
-        this.props.cardActions.setTitle(title.toUpperCase());
+    setTitleAPI = (title) => {
+        fetch('/api/v1/card/set-title', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.props.card.cardId,
+                title: title
+            })
+        })
+        .then(data => data.json())
+        .then(card => {
+            this.props.cardActions.setTitle(title.toUpperCase());            
+        })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
-    setDescriptionAPI(description) {
+    setDescriptionAPI = (description) => {
         fetch('/api/v1/card/set-description', {
             method: 'POST',
             headers: {

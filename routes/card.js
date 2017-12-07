@@ -21,7 +21,18 @@ router.get('/get-cards', (req, res) => {
             res.json(cards);
         }
     })
-})
+});
+
+router.get('/save-final', (req, res) => {
+
+    CardModel.saveFinal((card) => {
+        if (!cards) {
+            res.json({error: 'Could not get cards'});
+        } else {
+            res.json(card);
+        }
+    })
+});
 
 router.post('/set-habitat/', (req, res) => {
     

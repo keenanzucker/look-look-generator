@@ -26,7 +26,7 @@ class App extends Component {
                 <Router>
                     <div>
                         <Layout>
-                            <Header style={{ position: 'fixed', width: '100%', height: '48px' }}>
+                            <Header style={{ width: '100%', height: '48px' }}>
                                 <div className="logo" />
                                 <Menu
                                     theme="dark"

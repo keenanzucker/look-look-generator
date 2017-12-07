@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CardView from 'Components/CardView.jsx';
 
+import { Spin } from 'antd';
+
 export default class Gallery extends Component {
 
     constructor(props) {
@@ -21,7 +23,6 @@ export default class Gallery extends Component {
         })
         .then(data => data.json())
         .then(data => {
-            console.log(data);
             this.setState({
                 cards: data
             });
@@ -30,22 +31,37 @@ export default class Gallery extends Component {
             console.error(err);
         })
     }
+
+    checkIfComplete = (card) => {
+        // only want to show the completed cards
+        // TODO --> push the uncompleted cards into another object
+        let badCount = 0;
+        for (let key in card) {
+            if (card[key] === null || card[key] === '-1' || card[key] === '') badCount++;
+            console.log(key + " : " + card[key]);
+        }
+
+        if (badCount > 2) return false;
+        else return true;
+    }
     
     render() {
         let cards = [];
-        console.log(this.state);
 
-        if (!this.state.cards) return <div>Loading</div>
+        if (!this.state.cards) return <Spin size="large" style={{marginTop: "30px", width: "100%"}} />
         else {
             this.state.cards.forEach((card, i) => {
-                console.log(card);
-                cards.push(<CardView key={i} props={card}/>)
+                if (this.checkIfComplete(card)) cards.push(<CardView key={i} props={card}/>);
             });
+
+            cards = cards.reverse();
 
             return (
                 <div className="gallery-box" style={{textAlign: 'center'}}>
-                    <h1>This is da gallery</h1>
-                    {cards}
+                    <h1>Look Look Cards on Display!</h1>
+                    <div className="gallery-card-container">
+                        {cards}
+                    </div>
                 </div>
             );
         }
