@@ -16,9 +16,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-// app.get('*', function (request, response) {
-//     response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-// });
+app.use('/s3', require('react-dropzone-s3-uploader/s3router')({
+    bucket: 'look-look-generator',
+    region: 'us-east-1',
+    headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT'},
+    ACL: 'private',
+    uniquePrefix: true
+}));
 
 app.use('/api/v1/card', cardRouter);
 app.use('/public', publicRouter);
