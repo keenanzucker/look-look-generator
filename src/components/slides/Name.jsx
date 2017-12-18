@@ -36,8 +36,8 @@ class Name extends Component {
     render() {
         return (
             <div className="name-slide">
-                <h1>Name of Animal: </h1>
-                <InputString onSubmit={this.setNameAPI}/>
+                <h1>What is the Name of your animal?</h1>
+                <InputString length={20} onSubmit={this.setNameAPI}/>
             </div>
         );
     }

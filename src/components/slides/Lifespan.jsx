@@ -37,7 +37,7 @@ class Lifespan extends Component {
     render() {
         return (
             <div className="lifespan-slide">
-                <h1>Lifespan of Animal: </h1>
+                <h1>What is your animals Lifespan?</h1>
                 <InputNumber min={1} max={100} defaultValue={1} onChange={this.setLifespanAPI} />
             </div>
         );

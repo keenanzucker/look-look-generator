@@ -56,7 +56,7 @@ class Size extends Component {
     render() {
         return (
             <div className="size-slide">
-                <h1>Size of Animal: </h1>
+                <h1>What is the Size of your animal?</h1>
                 <div>
                     <h3>Feet:</h3>
                     <InputNumber min={0} max={100} defaultValue={0} onChange={this.setFeet} />
@@ -65,6 +65,7 @@ class Size extends Component {
                     <h3>Inches:</h3>
                     <InputNumber min={0} max={11} defaultValue={0} onChange={this.setInches} />      
                 </div>
+                <br />
                 <Button type="primary" onClick={this.setSizeAPI}> SET </Button>          
             </div>
         );

@@ -13,14 +13,11 @@ class Domain extends Component {
 
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
         this.currentHabitat = this.props.card.habitat;
         this.domains = constants.CONSTANTS.HABITATS[this.currentHabitat].domain;
-
-        console.log(this);
     }
 
-    handleChange(domain) {
+    handleChange = (domain) => {
         fetch('/api/v1/card/set-domain', {
             method: 'POST',
             headers: {
@@ -55,7 +52,7 @@ class Domain extends Component {
 
         return (
             <div className="domain-slide">
-                <h1>Domain of Animal: </h1>
+                <h1>What is the Domain of your animal? </h1>
                 <Select defaultValue="Domain" onChange={this.handleChange} style={{ width: 150 }}> 
                     {dropdownItems}
                 </Select>

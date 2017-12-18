@@ -5,23 +5,25 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import InputString from '../InputString.jsx';
 import * as cardActions from '../../actions/card';
+import { Button } from 'antd';
 
 class SuperDefender extends Component {
 
     constructor(props) {
         super(props);
-        this.setSuperDefenderAPI = this.setSuperDefenderAPI.bind(this);
     }
 
-    setSuperDefenderAPI(superDefender) {
+    setSuperDefenderAPI = (superDefender) => {
         this.props.cardActions.setSuperDefender(superDefender);
     }
-
+    
+    // TODO --> Make the Supe Defender Attribute Work!
     render() {
         return (
             <div className="super-defender-slide">
-                <h1>SuperDefender?: </h1>
-                <InputString onSubmit={this.setSuperDefenderAPI}/>
+                <h1>Done! Click on the Gallery tab to see your completed card</h1>
+                <h3>Note: All fields have to be completed to be shown in the gallery</h3>
+                {/* <InputString onSubmit={this.setSuperDefenderAPI}/> */}
             </div>
         );
     }

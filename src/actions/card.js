@@ -1,5 +1,11 @@
 'use strict';
 
+export const newCard = () => {
+    return {
+        type: 'NEW-CARD',
+    }
+}
+
 export const setCardId = (cardId) => {
     return {
         type: 'SET-CARD-ID',

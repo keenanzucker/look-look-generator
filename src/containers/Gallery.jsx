@@ -38,9 +38,7 @@ export default class Gallery extends Component {
         let badCount = 0;
         for (let key in card) {
             if (card[key] === null || card[key] === '-1' || card[key] === '') badCount++;
-            console.log(key + " : " + card[key]);
         }
-
         if (badCount > 2) return false;
         else return true;
     }
@@ -58,7 +56,6 @@ export default class Gallery extends Component {
 
             return (
                 <div className="gallery-box" style={{textAlign: 'center'}}>
-                    <h1>Look Look Cards on Display!</h1>
                     <div className="gallery-card-container">
                         {cards}
                     </div>

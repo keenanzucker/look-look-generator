@@ -1,7 +1,50 @@
 'use strict';
 
 export default function card(state = {}, action) {
+    var newCard = {
+        habitat: -1,
+        lifespan: -1,
+        size: {
+            feet: -1,
+            inches: -1
+        },
+        domain: -1,
+        trophicLevel: -1,
+        superDefender: null,
+        nocturnal: null,
+        name: '',
+        title: '',
+        description: '',
+        cardSet: '',
+        image: '',
+        author: '',
+        id: ''
+    };
+
     switch (action.type) {
+
+        case 'NEW-CARD':
+            return {
+                state: {
+                    habitat: -1,
+                    lifespan: -1,
+                    size: {
+                        feet: -1,
+                        inches: -1
+                    },
+                    domain: -1,
+                    trophicLevel: -1,
+                    superDefender: null,
+                    nocturnal: null,
+                    name: '',
+                    title: '',
+                    description: '',
+                    cardSet: '',
+                    image: '',
+                    author: '',
+                    id: ''
+                }
+            }
 
         case 'SET-CARD-ID':
             return {

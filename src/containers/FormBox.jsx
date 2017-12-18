@@ -40,7 +40,7 @@ class FormBox extends Component {
 
         return (
             <div className="form-box" style={{padding: 50}}>
-                <Progress percent={progressPercent}/>
+                <Progress className="progress-bar" percent={progressPercent}/>
                 <QuestionSlide />
                 <br />
                 <div className="button-box">

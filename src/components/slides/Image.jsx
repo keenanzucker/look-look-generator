@@ -36,8 +36,8 @@ class Image extends Component {
     render() {
         return (
             <div className="image-slide">
-                <h1>Upload Your Image Here: </h1>
-                <InputString onSubmit={this.setImageAPI}/>
+                <h1>Enter the URL of an image of your animal:</h1>
+                <InputString length={1000} onSubmit={this.setImageAPI}/>
             </div>
         );
     }

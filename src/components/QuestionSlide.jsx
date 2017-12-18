@@ -66,7 +66,7 @@ class QuestionSlide extends Component {
         }
         return (
             <div className="question-slide">
-                <h1>Question #{this.props.ui.currentSlide}</h1>
+                {/* <h1>Question #{this.props.ui.currentSlide}</h1> */}
                 {questionSlide}
             </div>
         );

@@ -10,10 +10,9 @@ class CardSet extends Component {
 
     constructor(props) {
         super(props);
-        this.setCardSetAPI = this.setCardSetAPI.bind(this);
     }
 
-    setCardSetAPI(cardSet) {
+    setCardSetAPI = (cardSet) => {
         fetch('/api/v1/card/set-card-set', {
             method: 'POST',
             headers: {
@@ -36,7 +35,7 @@ class CardSet extends Component {
     render() {
         return (
             <div className="set-slide">
-                <h1>CardSet: </h1>
+                <h1>Name of the Card Set (e.g. Sea Life) </h1>
                 <InputString onSubmit={this.setCardSetAPI}/>
             </div>
         );

@@ -12,7 +12,6 @@ class LandingPage extends Component {
 
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // generate new card id, then pass that into setting the author
@@ -54,7 +53,7 @@ class LandingPage extends Component {
         })
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
@@ -70,13 +69,16 @@ class LandingPage extends Component {
             const authorError = isFieldTouched('author') && getFieldError('author');
             return (
                 <Form className="landing-page" onSubmit={this.handleSubmit} layout="inline">
+                    {/* <img src={require("../../public/assets/logo.png")} /> */}
                     <h1>Welcome to Look Look</h1>
+                    <br />
                     <h2>Please enter your name:</h2>
+                    <br />
                     <FormItem validateStatus={authorError ? 'error' : ''} help={authorError || ''}> 
                         {getFieldDecorator('author', {
                             rules: [{ required: true, message: 'Please enter your name' }],
                         })(
-                            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="author" />
+                            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="author" maxLength="12" />
                         )}
                     </FormItem>
                     <FormItem> 

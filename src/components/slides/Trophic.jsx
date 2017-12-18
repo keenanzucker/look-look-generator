@@ -37,7 +37,7 @@ class Trophic extends Component {
     render() {
         return (
             <div className="trophic-slide">
-                <h1>Trophic Level?: </h1>
+                <h1>What is the Trophic Level of your animal? </h1>
                 <InputNumber min={1} max={5} defaultValue={1} onChange={this.setTrophicAPI} />
             </div>
         );

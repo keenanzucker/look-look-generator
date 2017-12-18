@@ -57,9 +57,11 @@ class TitleDescription extends Component {
     render() {
         return (
             <div className="Title-slide">
-                <h1>Title of Animal: </h1>
-                <InputString onSubmit={this.setTitleAPI} style={{paddingBottom:20}}/>
-                <InputString textArea={true} onSubmit={this.setDescriptionAPI}/>
+                <h1>What is short Fact about your animal?</h1>
+                <InputString length={30} onSubmit={this.setTitleAPI} style={{paddingBottom:20}}/>
+                <h1>Please provide a Description of your animal.</h1>
+                <InputString length={100} textArea={true} onSubmit={this.setDescriptionAPI}/>
+                <br />
             </div>
         );
     }

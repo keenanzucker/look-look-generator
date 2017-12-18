@@ -56,7 +56,7 @@ class Nocturnal extends Component {
 
         return (
             <div className="nocturnal-slide">
-                <h1>Nocturnal? </h1>
+                <h1>Is your animal Nocturnal or Dieurnal?</h1>
                 <Select defaultValue="nocturnal" onChange={this.handleChange} style={{ width: 150 }}> 
                     {dropdownItems}
                 </Select>

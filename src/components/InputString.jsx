@@ -12,10 +12,9 @@ class InputStringForm extends Component {
         this.state = {
             value: ''
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
@@ -32,7 +31,7 @@ class InputStringForm extends Component {
                 <FormItem validateStatus={valueError ? 'error' : ''} help={valueError || ''}> 
                     {getFieldDecorator('value', {
                         rules: [{ required: true, message: 'Please enter a value' }],
-                    })(this.props.textArea ? <TextArea rows={3} placeholder="text"/> : <Input placeholder="value" />)}
+                    })(this.props.textArea ? <TextArea maxLength={String(this.props.length)} rows={3} placeholder="text"/> : <Input maxLength={String(this.props.length)} placeholder="value" />)}
                 </FormItem>
                 <FormItem> 
                     <Button type="primary" htmlType="submit">Set </Button>
