@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "look-look-generator",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "look look ",
   "main": "server.js",
   "scripts": {
     "watch": "webpack -d --watch --config ./config/webpack/development.js",
