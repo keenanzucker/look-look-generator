@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const port = process.env.NODE_PORT || 8080;
 
 let cardRouter = require('./routes/card');
-// TODO -> rename card i guess
 let publicRouter = require('./routes/public');
 
 let app = express();

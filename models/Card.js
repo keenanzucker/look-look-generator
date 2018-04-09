@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 var _ = require('underscore');
 
 mongoose.Promise = global.Promise;
-var cardSchema = mongoose.Schema({
+
+let cardSchema = mongoose.Schema({
     id: String,
     habitat: Number,
     lifespan: Number,

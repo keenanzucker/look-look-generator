@@ -37,17 +37,17 @@ class App extends Component {
                 <Router>
                     <div>
                         <Layout>
-                            <Header style={{ width: '100%', height: '48px' }}>
-                                <div className="logo" />
+                            <Header className="app-header">
+                                <div className="logo">LOOKLOOK</div>
                                 <Menu
                                     theme="dark"
                                     mode="horizontal"
                                     defaultSelectedKeys={['1']}
                                     style={{ lineHeight: '48px' }}
-                                >
+                                >   
                                     <Menu.Item key="1"><Link to="/">Generate</Link></Menu.Item>
                                     <Menu.Item key="2"><Link to="/gallery">Gallery</Link></Menu.Item>
-                                    <Menu.Item key="3" style={{float:"right"}}>
+                                    <Menu.Item key="3" className="create-new-card">
                                     <Popconfirm title="Are you sure you want to start a new card?" onConfirm={this.handleNew} okText="Yes" cancelText="No">
                                         <Button ghost="true" >Create New Card</Button>
                                     </Popconfirm>

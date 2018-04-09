@@ -70,7 +70,7 @@ class LandingPage extends Component {
             return (
                 <Form className="landing-page" onSubmit={this.handleSubmit} layout="inline">
                     {/* <img src={require("../../public/assets/logo.png")} /> */}
-                    <h1>Welcome to Look Look</h1>
+                    <h1>Welcome to the LOOKLOOK Generator</h1>
                     <br />
                     <h2>Please enter your name:</h2>
                     <br />
