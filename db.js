@@ -23,8 +23,12 @@ let db;
 // console.log('Connected to local database');
 
 // If mlab sandbox wanted:
-let AUTH = auth.uname + ':' + auth.password;
-db = mongoose.connect('mongodb://' + AUTH + '@ds149134.mlab.com:49134/looklook', options);
+if (env = "PROD") {
+  db = mongoose.connect(`mongodb://${auth.uname}:${auth.password}@ds149134.mlab.com:49134/looklook`, options);
+} else if (env = "TEST") {
+  db = mongoose.connect(`mongodb://${auth.uname}:${auth.password}@ds241039.mlab.com:41039/looklook-test`, options);
+}
+
 console.log('Connected to sandbox instance');
 
 mongoose.connection.on('error', function(e) {
