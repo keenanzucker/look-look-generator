@@ -41,7 +41,6 @@ describe('Card: models', () => {
     });
 
     it('#makeCard', (done) => {
-        expect(DUT.map).to.have.lengthOf(8);
         expect(DUT.habitat).to.equal(-1);
         expect(DUT.superDefender).to.be.null;
         expect(DUT.author).to.be.empty;
@@ -142,14 +141,6 @@ describe('Card: models', () => {
         Card.setSize(DUT._id, {feet: 4, inches: 0}, (updated) => {
             expect(updated.size.feet).to.equal(4);
             expect(updated.size.inches).to.equal(0);            
-            done();
-        });
-    });
-
-    it('#setsMap', (done) => {
-        expect(DUT.map).to.deep.equal([false, false, false, false, false, false, false, false]);
-        Card.setMap(DUT._id, [true, true, true, true, false, false, false, false], (updated) => {
-            expect(updated.map).to.deep.equal([true, true, true, true, false, false, false, false]);
             done();
         });
     });

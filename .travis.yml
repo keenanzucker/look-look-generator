@@ -1,0 +1,32 @@
+language: node_js
+
+node_js: 8
+
+env:
+  global:
+  - NODE_ENV=TEST
+
+services:
+- mongodb
+
+before_install:
+- npm install
+
+before_script:
+- sleep 15
+- mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+
+script:
+- node server.js &
+- npm test
+
+os: linux
+
+addons:
+  chrome: stable
+
+group: stable
+
+dist: trusty
+
+sudo: required
