@@ -23,13 +23,20 @@ let db;
 // console.log('Connected to local database');
 
 // If mlab sandbox wanted:
-if (env = "PROD") {
-  db = mongoose.connect(`mongodb://${auth.uname}:${auth.password}@ds149134.mlab.com:49134/looklook`, options);
-} else if (env = "TEST") {
-  db = mongoose.connect(`mongodb://${auth.uname}:${auth.password}@ds241039.mlab.com:41039/looklook-test`, options);
+switch(env) {
+  case "PROD":
+    db = mongoose.connect(`mongodb://${auth.uname}:${auth.password}@ds149134.mlab.com:49134/looklook`, options);
+    console.log('Connected to sandbox PROD instance');
+    break;
+  case "TEST":
+    db = mongoose.connect(`mongodb://${auth.uname}:${auth.password}@ds241039.mlab.com:41039/looklook-test`, options);
+    console.log('Connected to sandbox TEST instance');
+    break;
+  default:
+    db = mongoose.connect(`mongodb://${auth.uname}:${auth.password}@ds139446.mlab.com:39446/looklook-dev`, options);
+    console.log('Connected to sandbox DEV instance');
+    break;
 }
-
-console.log('Connected to sandbox instance');
 
 mongoose.connection.on('error', function(e) {
   console.log('Could not connect to mongoose', e);
