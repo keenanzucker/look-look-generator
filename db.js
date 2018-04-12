@@ -1,14 +1,19 @@
 'use strict';
 
 let mongoose = require('mongoose');
-let auth = require('./auth');
+require('dotenv').config();
+
+const auth = {
+  uname: process.env.USERNAME,
+  password: process.env.PASSWORD
+}
 
 // TODO Set these environment variables
-let env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV;
 let options = {
-    autoReconnect: true,
-    reconnectTries: 100,
-    reconnectInterval: 2000
+  autoReconnect: true,
+  reconnectTries: 100,
+  reconnectInterval: 2000
 };
 
 let db;
@@ -23,11 +28,11 @@ db = mongoose.connect('mongodb://' + AUTH + '@ds149134.mlab.com:49134/looklook',
 console.log('Connected to sandbox instance');
 
 mongoose.connection.on('error', function(e) {
-    console.log('Could not connect to mongoose', e);
+  console.log('Could not connect to mongoose', e);
 });
 
 mongoose.connection.once('open', function(){
-    console.log('Mongodb Connection Successful');
+  console.log('Mongodb Connection Successful');
 });
 
 module.exports = db;
