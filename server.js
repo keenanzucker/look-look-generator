@@ -24,7 +24,9 @@ app.use('/s3', require('react-dropzone-s3-uploader/s3router')({
 }));
 
 app.use('/api/v1/card', cardRouter);
-app.use('/public', publicRouter);
+app.get('*', function(request, response) {
+    response.sendFile(path.join(__dirname, '/public/index.html'));
+});
 
 let server = app.listen(port, function() {
     console.log('Listening on port:', port);
