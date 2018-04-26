@@ -8,6 +8,7 @@ bundle.js.gz
 main.css
 main.css.map
 
+errorShots/
 .env
 *.swp
 auth.js

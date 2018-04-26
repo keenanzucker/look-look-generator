@@ -35,7 +35,7 @@ class App extends Component {
         return (
             <Provider store={Store()}>
                 <Router>
-                    <div>
+                    <div className="App">
                         <Layout>
                             <Header className="app-header">
                                 <div className="logo">LOOKLOOK</div>

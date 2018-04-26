@@ -18,7 +18,8 @@ before_script:
 
 script:
 - node server.js &
-- npm test
+- npm run test-e2e-travis &
+- npm run test-api
 
 os: linux
 
