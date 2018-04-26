@@ -10,7 +10,8 @@
     "start": "nodemon server.js",
     "test": " npm run test-api && npm run test-e2e",
     "test-e2e": "./node_modules/.bin/wdio wdio.conf.js",
-    "test-api": "mocha --compilers js:babel-core/register test"
+    "test-api": "mocha --compilers js:babel-core/register test",
+    "test-e2e-travis": "./node_modules/.bin/wdio wdio.conf.travis.js"    
   },
   "author": "",
   "license": "ISC",
