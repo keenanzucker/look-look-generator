@@ -78,7 +78,7 @@ class LandingPage extends Component {
                         {getFieldDecorator('author', {
                             rules: [{ required: true, message: 'Please enter your name' }],
                         })(
-                            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="author" maxLength="12" />
+                            <Input className="input-author" prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="author" maxLength="12" />
                         )}
                     </FormItem>
                     <FormItem> 
