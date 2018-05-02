@@ -25,43 +25,43 @@ import Gallery from 'Containers/Gallery.jsx';
 
 class App extends Component {
 
-    handleNew = (e) => {
-        console.log('create new card on reload');
-        location.reload();
-        message.success('Creating New Card');
-    }
+  handleNew = (e) => {
+    console.log('create new card on reload');
+    location.reload();
+    message.success('Creating New Card');
+  }
 
-    render() {
-        return (
-            <Provider store={Store()}>
-                <Router>
-                    <div className="App">
-                        <Layout>
-                            <Header className="app-header">
-                                <div className="logo">LOOKLOOK</div>
-                                <Menu
-                                    theme="dark"
-                                    mode="horizontal"
-                                    defaultSelectedKeys={['1']}
-                                    style={{ lineHeight: '48px' }}
-                                >   
-                                    <Menu.Item key="1"><Link to="/">Generate</Link></Menu.Item>
-                                    <Menu.Item key="2"><Link to="/gallery">Gallery</Link></Menu.Item>
-                                    <Menu.Item key="3" className="create-new-card">
-                                    <Popconfirm title="Are you sure you want to start a new card?" onConfirm={this.handleNew} okText="Yes" cancelText="No">
-                                        <Button ghost="true" >Create New Card</Button>
-                                    </Popconfirm>
-                                    </Menu.Item>
-                                </Menu>
-                            </Header>
-                        </Layout>
-                        <Route exact path='/' component={Welcome} />
-                        <Route path='/gallery' component={Gallery} />
-                    </div>
-                </Router>
-            </Provider>
-        );
-    }
+  render() {
+    return (
+      <Provider store={Store()}>
+        <Router>
+          <div className="App">
+            <Layout>
+              <Header className="app-header">
+                <div className="logo">LOOKLOOK</div>
+                <Menu
+                    theme="dark"
+                    mode="horizontal"
+                    defaultSelectedKeys={['1']}
+                    style={{ lineHeight: '48px' }}
+                >   
+                  <Menu.Item key="1"><Link to="/">Generate</Link></Menu.Item>
+                  <Menu.Item key="2" className="link-to-gallery"><Link to="/gallery">Gallery</Link></Menu.Item>
+                  <Menu.Item key="3" className="create-new-card">
+                  <Popconfirm title="Are you sure you want to start a new card?" onConfirm={this.handleNew} okText="Yes" cancelText="No">
+                    <Button ghost="true" >Create New Card</Button>
+                  </Popconfirm>
+                  </Menu.Item>
+                </Menu>
+              </Header>
+            </Layout>
+            <Route exact path='/' component={Welcome} />
+            <Route path='/gallery' component={Gallery} />
+          </div>
+        </Router>
+      </Provider>
+    );
+  }
 }
 
 render(<App />, document.getElementById('container'));

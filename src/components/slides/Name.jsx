@@ -37,7 +37,7 @@ class Name extends Component {
         return (
             <div className="name-slide">
                 <h1>What is the Name of your animal?</h1>
-                <InputString length={20} onSubmit={this.setNameAPI}/>
+                <InputString className="input-name" length={20} onSubmit={this.setNameAPI}/>
             </div>
         );
     }
